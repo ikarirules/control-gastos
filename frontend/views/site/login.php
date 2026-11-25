@@ -2,10 +2,11 @@
 
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
-/** @var \common\models\LoginForm $model */
+/** @var \frontend\models\LoginForm $model */
 
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
+use yii\captcha\Captcha;
 
 $this->title = 'Iniciar sesión';
 ?>
@@ -18,6 +19,11 @@ $this->title = 'Iniciar sesión';
             <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('Usuario') ?>
 
             <?= $form->field($model, 'password')->passwordInput()->label('Contraseña') ?>
+
+            <?= $form->field($model, 'verifyCode')->widget(Captcha::class, [
+                'template' => '<div class="d-flex align-items-center gap-2">{image}{input}</div>',
+                'imageOptions' => ['title' => 'Clic para cambiar la imagen', 'style' => 'cursor:pointer'],
+            ]) ?>
 
             <?= $form->field($model, 'rememberMe')->checkbox()->label('Recordarme') ?>
 

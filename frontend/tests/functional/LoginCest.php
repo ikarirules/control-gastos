@@ -34,6 +34,7 @@ class LoginCest
         return [
             'LoginForm[username]' => $login,
             'LoginForm[password]' => $password,
+            'LoginForm[verifyCode]' => 'testme',
         ];
     }
 

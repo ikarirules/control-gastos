@@ -12,10 +12,10 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
-    // Todo el sitio requiere sesión iniciada, excepto el login y la página de error
+    // Todo el sitio requiere sesión iniciada, excepto el login (y su captcha) y la página de error
     'as access' => [
         'class' => \yii\filters\AccessControl::class,
-        'except' => ['site/login', 'site/error', 'debug/*', 'gii/*'],
+        'except' => ['site/login', 'site/captcha', 'site/error', 'debug/*', 'gii/*'],
         'rules' => [
             ['allow' => true, 'roles' => ['@']],
         ],
